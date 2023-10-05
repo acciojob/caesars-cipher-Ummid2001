@@ -1,6 +1,4 @@
-// Your Script here.
-
-const lookup = {
+[8:12 PM, 10/5/2023] Vikash Ranchi: const lookup = {
   A: "N",
   B: "O",
   C: "P",
@@ -31,11 +29,17 @@ const lookup = {
   ",": ",",
 };
 
-function rot13(encodedStr) {
-  let decodedArr = []; // Your Result goes here
+function rot13(str) {
+    return str.replace(/[A-Z]/g, (match) => {
+        const charCode = match.charCodeAt(0);
+        const offset = charCode < 78 ? 13 : -13;
+        return String.fromCharCode(charCode + offset);
+    });
+}
+// Your Result goes here
   // Only change code below this line
 
-  return; //return decodedArr
+   //return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
@@ -44,3 +48,27 @@ function rot13(encodedStr) {
 
 // Do not change this line
 window.rot13 = rot13;
+[8:12 PM, 10/5/2023] Vikash Ranchi: Caesar's Cipher
+[8:18 PM, 10/5/2023] Vikash Ranchi: function firstNonRepeatedChar(str) {
+    // Create an object to store character frequencies
+    const charCount = {};
+
+    // Iterate through the string to count character frequencies
+    for (const char of str) {
+        if (charCount[char]) {
+            charCount[char]++;
+        } else {
+            charCount[char] = 1;
+        }
+    }
+
+    // Iterate through the string again to find the first non-repeated character
+    for (const char of str) {
+        if (charCount[char] === 1) {
+            return char;
+        }
+    }
+
+    // If no non-repeated character is found, return null
+    return null;
+}
